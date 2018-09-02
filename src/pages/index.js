@@ -33,6 +33,7 @@ const IndexPage = () => (
         <li>On a disc golf course</li>
         <li>On a tennis court</li>
         <li>Listening to live music</li>
+        <li>With my girlfriend, Elena</li>
       </ul>
     </section>
     <section style={{ marginTop: "5rem", textAlign: "center" }}>
