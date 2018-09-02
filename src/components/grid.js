@@ -1,6 +1,7 @@
 import React from "react";
 
 import Layout from "./layout";
+import headshot from "./headshot.jpg";
 import "./grid.css";
 
 export default function Grid({ children }) {
@@ -10,7 +11,7 @@ export default function Grid({ children }) {
         <section className="Grid-header">
           <section className="Grid-header-content">
             <section className="Grid-header-image">
-              <img src="https://placehold.it/500x500" alt="Profile" />
+              <img src={headshot} alt="Profile" />
             </section>
             <section className="Grid-header-text">
               <h2>Connor Bryan</h2>
