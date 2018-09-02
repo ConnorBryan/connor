@@ -20,6 +20,7 @@ body {
   box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
     0 3px 6px 0 rgba(0, 0, 0, 0.07);
   color: #333;
+  overflow-y: auto;
 }
 
 @media (min-width: 1000px) {
@@ -117,14 +118,14 @@ body {
   position: relative;
   flex: 1;
   padding: 1rem;
-  min-height: 720px;
+  min-height: 540px;
   background: #fafafa;
   border: 1px solid #979797;
   border-bottom: none;
   border-radius: 6px 6px 0 0;
   box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
     0 3px 6px 0 rgba(0, 0, 0, 0.07);
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 @media (min-width: 1000px) {
