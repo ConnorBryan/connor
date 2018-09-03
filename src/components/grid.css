@@ -9,10 +9,6 @@ body {
   grid-template-areas:
     "header"
     "content";
-
-  width: 100vw;
-  max-width: 1600px;
-  height: 100vh;
   margin: 0 auto;
   background: url(./stripes-light.png);
   border-left: 1px solid #979797;
@@ -20,7 +16,6 @@ body {
   box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
     0 3px 6px 0 rgba(0, 0, 0, 0.07);
   color: #333;
-  overflow-y: auto;
 }
 
 @media (min-width: 1000px) {
@@ -124,7 +119,6 @@ body {
   border-radius: 6px 6px 0 0;
   box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
     0 3px 6px 0 rgba(0, 0, 0, 0.07);
-  overflow: hidden;
 }
 
 @media (min-width: 1000px) {
