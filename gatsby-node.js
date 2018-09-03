@@ -33,11 +33,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   if (errors) {
     console.error(errors);
   } else {
-    data.allMarkdownRemark.edges.forEach(({ node }) => {
+    data.allMarkdownRemark.edges.forEach(({ node }) =>
       createPage({
         path: node.fields.slug,
-        component: path.resolve("./src/templates/post.js")
-      });
-    });
+        component: path.resolve("./src/templates/post.js"),
+        context: {
+          slug: node.fields.slug
+        }
+      })
+    );
   }
 };
