@@ -1,0 +1,9 @@
+@media (min-width: 500px) {
+  .Panel {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #999;
+    box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
+      0 3px 6px 0 rgba(0, 0, 0, 0.07);
+  }
+}

@@ -1,0 +1,19 @@
+.Post-header {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #999;
+}
+
+.Post-header:before {
+  margin-right: 0.5rem;
+  content: "«";
+}
+
+.Post-header a {
+  color: #333;
+  text-transform: uppercase;
+}
+
+.Post-header a:hover {
+  text-decoration: none;
+}

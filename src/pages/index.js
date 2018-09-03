@@ -1,30 +1,27 @@
 import React from "react";
 import { graphql } from "gatsby";
-import netlifyIdentity from "netlify-identity-widget";
 
 import Grid from "../components/grid";
-import banner from "./banner.jpg";
+import Panel from "../components/panel";
+import PostList from "../components/post-list";
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({
+  data: {
+    allMarkdownRemark: { totalCount, edges }
+  }
+}) => (
   <Grid>
-    <section>
-      <h1>Posts ({data.allMarkdownRemark.totalCount})</h1>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <section key={node.id}>
-          <h3>
-            {node.frontmatter.title}
-            <small>{node.frontmatter.date}</small>
-          </h3>
-        </section>
-      ))}
-    </section>
-    <section>
-      <h1>Who I Am</h1>
+    <Panel>
+      <h2>Who I Am</h2>
       <p>
         I'm a passionate JavaScript developer currently acting as the head of
         development for <a href="https://www.MyCrypto.com/">MyCrypto</a>.
       </p>
-      <h1>Where to Find Me</h1>
+    </Panel>
+    <Panel>
+      <PostList totalCount={totalCount} posts={edges} />
+    </Panel>
+    <Panel>
       <h2>Social Media</h2>
       <ul>
         <li>
@@ -36,6 +33,8 @@ const IndexPage = ({ data }) => (
           <a href="https://github.com/ConnorBryan">GitHub</a>
         </li>
       </ul>
+    </Panel>
+    <Panel>
       <h2>Hangout Spots</h2>
       <ul>
         <li>
@@ -48,13 +47,8 @@ const IndexPage = ({ data }) => (
         <li>Listening to live music</li>
         <li>With my girlfriend, Elena</li>
       </ul>
-    </section>
-    <section style={{ marginTop: "5rem", textAlign: "center" }}>
-      <img src={banner} alt="Banner" />
-    </section>
-    <section style={{ textAlign: "right" }}>
-      <button onClick={() => netlifyIdentity.open()}>Identity</button>
-    </section>
+    </Panel>
+    <section />
   </Grid>
 );
 
@@ -65,6 +59,9 @@ export const query = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")

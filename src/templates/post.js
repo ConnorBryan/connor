@@ -1,5 +1,9 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
+
+import Grid from "../components/grid";
+import Panel from "../components/panel";
+import "./post.css";
 
 export const query = graphql`
   query($slug: String!) {
@@ -15,5 +19,19 @@ export const query = graphql`
 export default function Post({ data }) {
   const { markdownRemark: post } = data;
 
-  return <section dangerouslySetInnerHTML={{ __html: post.html }} />;
+  return (
+    <Grid>
+      <section className="Post">
+        <section className="Post-header">
+          <Link to="/">Back</Link>
+        </section>
+        <Panel>
+          <section
+            className="Post-content"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </Panel>
+      </section>
+    </Grid>
+  );
 }
