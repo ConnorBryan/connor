@@ -118,7 +118,7 @@ body {
   position: relative;
   flex: 1;
   padding: 1rem;
-  min-height: 540px;
+  min-height: 800px;
   background: #fafafa;
   border: 1px solid #979797;
   border-bottom: none;
@@ -129,6 +129,10 @@ body {
 }
 
 @media (min-width: 1000px) {
+  .Grid-content {
+    min-height: 1300px;
+  }
+
   .Grid-content-wrapper {
     padding: 2rem 2rem 0 2rem;
   }

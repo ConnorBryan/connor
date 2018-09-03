@@ -3,7 +3,16 @@ module.exports = {
     title: "Connor Bryan | Principal Architect"
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`
+      }
+    },
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-netlify-cms",
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

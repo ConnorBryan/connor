@@ -1,10 +1,23 @@
 import React from "react";
+import { graphql } from "gatsby";
+import netlifyIdentity from "netlify-identity-widget";
 
 import Grid from "../components/grid";
 import banner from "./banner.jpg";
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Grid>
+    <section>
+      <h1>Posts ({data.allMarkdownRemark.totalCount})</h1>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <section key={node.id}>
+          <h3>
+            {node.frontmatter.title}
+            <small>{node.frontmatter.date}</small>
+          </h3>
+        </section>
+      ))}
+    </section>
     <section>
       <h1>Who I Am</h1>
       <p>
@@ -39,7 +52,27 @@ const IndexPage = () => (
     <section style={{ marginTop: "5rem", textAlign: "center" }}>
       <img src={banner} alt="Banner" />
     </section>
+    <section style={{ textAlign: "right" }}>
+      <button onClick={() => netlifyIdentity.open()}>Identity</button>
+    </section>
   </Grid>
 );
+
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
